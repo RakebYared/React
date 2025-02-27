@@ -1,6 +1,5 @@
 import Todo from "./todo";
 
-
 function App() { 
   return (
     <>

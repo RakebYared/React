@@ -17,13 +17,13 @@ function TaskManagement() {
             } else {
                 setTasks([...tasks, { ...task, dateModified: new Date() }]);
             }
-            setTask({ status: false, title: '', dueDate: '', description: '' });
+            setTask({ status: false, title: '', dueDate: '', description: '' }); 
         }
     };
 
     const handleEdit = (index) => {
         setEditIndex(index);
-        setTask(tasks[index]);
+        setTask(tasks[index]); 
     };
 
     const handleDelete = (index) => {
@@ -39,22 +39,26 @@ function TaskManagement() {
     };
 
     const handleSortChange = (e) => {
-        setSortOption(e.target.value);
+        var new_sort = e.target.value
+        setSortOption(new_sort);
+        sortTask(new_sort);
     };
 
-    const sortedTasks = () => {
-        return [...tasks].sort((a, b) => {
-            if (sortOption === "dateModified") {
-                return new Date(b.dateModified) - new Date(a.dateModified);
+    const sortTask = (new_sort) => {
+
+        var updatedTasks = [...tasks].sort((a, b) => {
+            if (new_sort === "dateModified") {
+                return new Date(a.dateModified) - new Date(b.dateModified); 
             }
-            if (sortOption === "title") {
-                return a.title.localeCompare(b.title);
+            if (new_sort === "title") {
+                return a.title.localeCompare(b.title); 
             }
-            if (sortOption === "status") {
-                return (a.status === b.status) ? 0 : a.status ? -1 : 1;
+            if (new_sort === "status") {
+                return (a.status === b.status) ? 0 : a.status ? 1 : -1;
             }
-            return 0;
+            return 0
         });
+        setTasks(updatedTasks)
     };
 
     return (
@@ -82,8 +86,8 @@ function TaskManagement() {
                     {editIndex !== null ? 'Update Task' : 'Add Task'}
                 </button>
             </div>
-            <div className="sort-dropdown">
-                <label htmlFor="sort">Sort by:</label>
+            <div>
+                <label htmlFor="sort">Sort by: </label>
                 <select id="sort" value={sortOption} onChange={handleSortChange}>
                     <option value="dateModified">Date Modified</option>
                     <option value="title">Title</option>
@@ -92,7 +96,7 @@ function TaskManagement() {
             </div>
             <div>
                 <ul>
-                    {sortedTasks().map((taskItem, index) => (
+                    {tasks.map((taskItem, index) => (
                         <li key={index}>
                             <h3>
                                 <span onClick={() => toggleStatus(index)} style={{ cursor: 'pointer', marginRight: '10px' }}>
@@ -100,8 +104,8 @@ function TaskManagement() {
                                 </span>
                                 {taskItem.title}
                             </h3>
-                            <p>Due Date: {taskItem.dueDate}</p>
-                            <p>Description: {taskItem.description}</p>
+                            <p style={{marginLeft : '20px'}}>Due Date: {taskItem.dueDate}</p>
+                            <p style={{marginLeft : '20px'}}>Description: {taskItem.description}</p>
                             <button className="edit-button" onClick={() => handleEdit(index)}>Edit</button>
                             <button className="delete-button" onClick={() => handleDelete(index)}>Delete</button>
                         </li>
