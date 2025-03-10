@@ -1,22 +1,26 @@
-import Header from "./header";
-import Group from "./Group";
-import Footer from "./footer";
-import Card from "./card";
-import UserCard from "./UserCard";
-import Change from "./Change";
+// import Home from "./pages/Home"; 
+// import UserProfile from "./pages/userProfile";
+// import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+// import About from "./pages/About";
 
-function App() {
-  return (
-    <>
-      <Change/>
-      <Header/>
-      <Group/>
-      <UserCard/>
-      <Card/>
-      <Footer/>      
+
+// function App() {
+
+//   return(
+//     <>   
+//     <nav>
+//       <button>ChangeTheme</button>  
+//     </nav>   
+//         <Routes>
+//           <Route path='/' element={<Home/>}/>
+//           <Route path='/about' element={<About/>}/>
+//           <Route path='/user-profile/:id' element={<UserProfile/>}/>
+
+//         </Routes>
     
-    </>
-  );
-}
+//     </>
 
-export default App
+//   );
+// }
+
+// export default App
