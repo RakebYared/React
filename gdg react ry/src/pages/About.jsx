@@ -1,6 +1,3 @@
-// line
-
-// rface
 import React, { useContext } from 'react'
 
 const About = () => {
