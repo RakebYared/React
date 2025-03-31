@@ -1,26 +1,27 @@
-// import Home from "./pages/Home"; 
-// import UserProfile from "./pages/userProfile";
-// import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-// import About from "./pages/About";
+import Home from "./pages/Home"; 
+import UserProfile from "./pages/userProfile";
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
+function App() {
 
-// function App() {
+  return(
+    <>   
+    <nav>
+      <button>ChangeTheme</button>  
+    </nav>   
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/user-profile/:id' element={<UserProfile/>}/>
+          <Route path="*" element={<NotFound />} />
 
-//   return(
-//     <>   
-//     <nav>
-//       <button>ChangeTheme</button>  
-//     </nav>   
-//         <Routes>
-//           <Route path='/' element={<Home/>}/>
-//           <Route path='/about' element={<About/>}/>
-//           <Route path='/user-profile/:id' element={<UserProfile/>}/>
-
-//         </Routes>
+        </Routes>
     
-//     </>
+    </>
 
-//   );
-// }
+  );
+}
 
-// export default App
+export default App
