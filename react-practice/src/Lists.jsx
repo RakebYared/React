@@ -14,7 +14,7 @@ const Lists = () => {
 
     ];
   return (
-    <div>
+    <div className=''>
       <ul>
         {data.map((item)=>(
             <li>{item.name} : {item.price} </li>

@@ -1,11 +1,15 @@
 import React from 'react'
-import Lists from './Lists'
-
+import {Brow}
 
 const App = () => {
   return (
     <div>
-      <Lists/>
+      <Routes>
+            <Route path={`${localStorage.getItem('token')? '/Home' : '/Login'}`} element={<Home/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/user-profile/:id' element={<UserProfile/>}/>
+  
+        </Routes>
     </div>
   )
 }
